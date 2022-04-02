@@ -3,9 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-#db = SQLAlchemy(app)
 
-#class Item(db.Model):
+# db = SQLAlchemy(app)
+
+# class Item(db.Model):
 
 @app.route('/')
 @app.route('/homepage')
@@ -28,6 +29,7 @@ def upload():
         {'ID': 3, 'MAN': 'TGX', 'PRNummer': '231985128446', 'MaxWeight': '18-41'}
     ]
     return render_template('upload.html', items=item)
+
 
 if __name__ == '__main__':
     app.run()
