@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from flask_sqlalchemy import SQLAlchemy
+#from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
@@ -29,6 +29,9 @@ def upload():
         {'ID': 3, 'MAN': 'TGX', 'PRNummer': '231985128446', 'MaxWeight': '18-41'}
     ]
     return render_template('upload.html', items=item)
+
+
+print ("This is a test for git")
 
 
 if __name__ == '__main__':

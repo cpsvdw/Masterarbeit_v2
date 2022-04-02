@@ -5,6 +5,8 @@ os.getcwd()
 
 def check ():
 
+print ("Hi Franziska")
+
 #file = Uploadfile
 #CompareFiles(file)
 
