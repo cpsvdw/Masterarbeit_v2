@@ -2,6 +2,7 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import glob
 
+
 def extract_model_from_file(content):
     '''
     Extracts model, context values and if exists the error description from xmi file.   
@@ -25,14 +26,14 @@ def extract_model_from_file(content):
         error_code_lines = error_code.split("\n")
         for i,line in enumerate(error_code_lines):
             if 'Fehler' in line:
-                error_description= line.partition('TAG_02_Fehlerbeschreibung = "')[2][0:-4]
+                error_description = line.partition('TAG_02_Fehlerbeschreibung = "')[2][0:-4]
                 model['error_description'] = error_description
     else:
         model['is_error'] = 0
         model['error_description'] = ''
 
     # extract model name
-    soup = BeautifulSoup(model_file, 'lxml')
+    soup = BeautifulSoup(model_file, 'xml')
     model_name = soup.packagedelement.packagedelement['name']
     model['model_name'] = model_name
     
@@ -49,7 +50,7 @@ def extract_model_from_file(content):
 column_names = ['model_name', '01_Rahmenlängsträger', '02_Rahmenquerträger', '03_1. Vorderachse', '04_1. Hinterachse', '05_Federung VA', '06_Federung HA', '07_Motor', '07_SW_Motor', '08_Getriebe', '08_SW_Getriebe', '09_Fahrerhaus', '01_Aussentemperatur', '02_Luftfeuchtigkeit', '03_Motordrehzahl']
 df_models = pd.DataFrame(columns=column_names)
 
-path_to_xmi_files ='Masterarbeit/Systemmodelle/01_Old Models' #DO: If the files are not in the same folder as the code file, add path to file.
+path_to_xmi_files ='Masterarbeit/Systemmodelle/OldModels' #DO: If the files are not in the same folder as the code file, add path to file.
 file_names = [f for f in glob.glob(path_to_xmi_files + '*.xmi')] 
 #print(file_names)
 
@@ -60,8 +61,6 @@ for file_name in file_names:
         print(file)
     model = extract_model_from_file(content)
     df_models = df_models.append(model, ignore_index=True)
-
-df_models
 
 def compare_new_model_to_known(new_model, known_models):
     '''
@@ -87,7 +86,7 @@ def compare_new_model_to_known(new_model, known_models):
     return congruency
 
 # read new model
-with open('Systemmodelle/02_New Model/ID8_mit Applikation.xmi', 'r') as file: #DO: specify new model path
+with open('Systemmodelle/NewModel/ID8mitApplikation.xmi', 'r') as file: #DO: specify new model path
     content = file.read()
 new_model = extract_model_from_file(content)
 congruencies = compare_new_model_to_known(new_model, df_models)
