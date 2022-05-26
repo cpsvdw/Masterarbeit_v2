@@ -49,7 +49,7 @@ def extract_model_from_file(content):
 column_names = ['model_name', '01_Rahmenlängsträger', '02_Rahmenquerträger', '03_1. Vorderachse', '04_1. Hinterachse', '05_Federung VA', '06_Federung HA', '07_Motor', '07_SW_Motor', '08_Getriebe', '08_SW_Getriebe', '09_Fahrerhaus', '01_Aussentemperatur', '02_Luftfeuchtigkeit', '03_Motordrehzahl']
 df_models = pd.DataFrame(columns=column_names)
 
-path_to_xmi_files ='C:\\Users\\vanderweck\Desktop\\02_Mit Applikation\\01_Old Models' #DO: If the files are not in the same folder as the code file, add path to file.
+path_to_xmi_files ='Masterarbeit/Systemmodelle/01_Old Models' #DO: If the files are not in the same folder as the code file, add path to file.
 file_names = [f for f in glob.glob(path_to_xmi_files + '*.xmi')] 
 #print(file_names)
 
@@ -87,7 +87,7 @@ def compare_new_model_to_known(new_model, known_models):
     return congruency
 
 # read new model
-with open('C:\\Users\\vanderweck\Desktop\\02_Mit Applikation\\02_New Model', 'r') as file: #DO: specify new model path
+with open('Systemmodelle/02_New Model/ID8_mit Applikation.xmi', 'r') as file: #DO: specify new model path
     content = file.read()
 new_model = extract_model_from_file(content)
 congruencies = compare_new_model_to_known(new_model, df_models)
