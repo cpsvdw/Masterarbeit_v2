@@ -93,9 +93,25 @@ for file_name in file_names:
     #print(model)
 
 # read new model
-with open('C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\ID7.xmi',
-          'r') as file:  # DO: specify new model path
-    content = file.read()
+
+#working on it
+
+#for newfile in golb.golb('C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\*.xmi'):
+ #   with open(newfile, 'r') as newfileopen:
+ #       content = newfileopen.read()
+
+path_to_new_xmi_file = 'C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\'
+new_files = [f for f in glob.glob(path_to_new_xmi_file + "*.xmi")]
+
+for new_file in new_files:
+    #print(file_name)
+    with open(new_file, 'r') as file:
+        content = file.read()
+
+# working solution
+#with open('C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\ID7.xmi',
+#          'r') as file:  # DO: specify new model path
+#    content = file.read()
 
 new_model = extract_model_from_file(content)
 congruencies = compare_new_model_to_known(new_model, df_models)
