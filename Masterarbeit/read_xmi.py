@@ -37,8 +37,6 @@ def extract_model_from_file(content):
     model_name = soup.packagedelement['name']
     model['model_name'] = model_name
 
-
-
     # extract model parameters and context variables
     for part in soup.packagedelement.packagedelement.find_all(True):
         part_id = part['type']
@@ -46,8 +44,8 @@ def extract_model_from_file(content):
         part_category = soup.find('packagedelement', {'xmi:id': part_id}).parent['name']
         model[part_category] = part_name
 
-
     return model
+
 
 def compare_new_model_to_known(new_model, known_models):
     '''
@@ -74,6 +72,7 @@ def compare_new_model_to_known(new_model, known_models):
         congruency[index] = count / 11
     return congruency
 
+
 # create table for models
 column_names = ['model_name', '01_Rahmenlängsträger', '02_Rahmenquerträger', '03_1. Vorderachse', '04_1. Hinterachse',
                 '05_Federung VA', '06_Federung HA', '07_Motor', '07_SW_Motor', '08_Getriebe', '08_SW_Getriebe',
@@ -82,19 +81,19 @@ df_models = pd.DataFrame(columns=column_names)
 
 path_to_xmi_files = 'C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\OldModels\\'  # DO: If the files are not in the same folder as the code file, add path to file.
 file_names = [f for f in glob.glob(path_to_xmi_files + "*.xmi")]
-print(file_names)
+#print(file_names)
 
 for file_name in file_names:
-    print(file_name)
+    #print(file_name)
     with open(file_name, 'r') as file:
         content = file.read()
-        print(file)
+      # print(file)
     model = extract_model_from_file(content)
     df_models = df_models.append(model, ignore_index=True)
-    print(model)
+    #print(model)
 
 # read new model
-with open('C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\ID8mitApplikation.xmi',
+with open('C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\ID7.xmi',
           'r') as file:  # DO: specify new model path
     content = file.read()
 
