@@ -51,7 +51,6 @@ def extract_model_from_file(content):
 
     return model
 
-
 def compare_new_model_to_known(new_model, known_models):
     '''
     Compare one model to all known models and calculate congruencies. 
@@ -77,7 +76,6 @@ def compare_new_model_to_known(new_model, known_models):
         congruency[index] = count / 11
     return congruency
 
-
 # create table for models
 column_names = ['model_name', '01_Rahmenlängsträger', '02_Rahmenquerträger', '03_1. Vorderachse', '04_1. Hinterachse',
                 '05_Federung VA', '06_Federung HA', '07_Motor', '07_SW_Motor', '08_Getriebe', '08_SW_Getriebe',
@@ -98,13 +96,6 @@ for file_name in file_names:
     #print(model)
 
 # read new model
-
-#working on it
-
-#for newfile in golb.golb('C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\*.xmi'):
- #   with open(newfile, 'r') as newfileopen:
- #       content = newfileopen.read()
-
 path_to_new_xmi_file = 'C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\'
 new_files = [f for f in glob.glob(path_to_new_xmi_file + "*.xmi")]
 
