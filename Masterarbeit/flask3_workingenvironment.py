@@ -199,7 +199,7 @@ def upload_file():
             h = ('Fehlerbeschreibung: ' + df_models.loc[hc_model]['03_Motordrehzahl'])
             i = ('Fehlerbeschreibung: ' + df_models.loc[hc_model]['02_Luftfeuchtigkeit'])
 
-            result = (a+b+c+d+e+f+g+h+i)
+            result = (a + "; " + b + "; " + c + "; " + d + "; " + e + "; " + f + "; " + g + "; " + h + "; " + i)
             return render_template('return_results.html', result=result)
 
 
