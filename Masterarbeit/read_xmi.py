@@ -1,6 +1,11 @@
 from bs4 import BeautifulSoup
 import pandas as pd
 import glob
+import warnings
+
+warnings.filterwarnings('ignore')
+warnings.warn('DelftStack')
+warnings.warn('Do not show this message')
 
 
 def extract_model_from_file(content):
