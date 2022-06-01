@@ -54,7 +54,7 @@ def upload():
 
 # @app.route('/result')
 # def result():
-#    return render_template('return_results.html')
+#    return render_template('return_positive_results.html')
 
 @app.route('/uploader', methods=['POST'])
 def upload_file():
@@ -100,7 +100,7 @@ def upload_file():
                             model['error_description'] = error_description
                 else:
                     model['is_error'] = 0
-                    model['error_description'] = ''
+                    model['error_description'] = 'Fehlerfreies Referenzmodell'
 
                 # extract model name
                 soup = BeautifulSoup(model_file, 'lxml')
@@ -190,6 +190,7 @@ def upload_file():
                     highest_congruency = congruencies[model]
                     hc_model = model
 
+            '''
             a = "Modell mit höchster Übereinstimmung: "
             b = ("Modell " + df_models.loc[hc_model].model_name)
             c = ("Ausfallwahrscheinlichkeit: " + str(highest_congruency * 100) + "%")
@@ -199,9 +200,19 @@ def upload_file():
             g = ('Aussentemperatur: ' + df_models.loc[hc_model]['01_Aussentemperatur'])
             h = ('Motordrehzahl: ' + df_models.loc[hc_model]['03_Motordrehzahl'])
             i = ('Luftfeuchtigkeit: ' + df_models.loc[hc_model]['02_Luftfeuchtigkeit'])
+            '''
+            b = df_models.loc[hc_model].model_name
+            c = str(highest_congruency * 100)
+            d = str(df_models.loc[hc_model].is_error)
+            e = df_models.loc[hc_model].error_description
+            g = df_models.loc[hc_model]['01_Aussentemperatur']
+            h = df_models.loc[hc_model]['03_Motordrehzahl']
+            i = df_models.loc[hc_model]['02_Luftfeuchtigkeit']
 
-            result = (a + b + "; " + c + "; " + d + "; " + e + "; " + f + g + "; " + h + "; " + i)
-            return render_template('return_results.html', result=result)
+            if df_models.loc[hc_model].is_error == 0.0:
+                return render_template('return_positive_results.html', b=b, c=c, g=g, h=h, i=i)
+            else:
+                return render_template('return_negative_results.html', b=b, c=c, e=e, g=g, h=h, i=i)
 
 
 if __name__ == '__main__':
