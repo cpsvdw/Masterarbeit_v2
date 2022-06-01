@@ -51,8 +51,9 @@ def aufbau():
 def upload():
     return render_template('upload.html')
 
-#@app.route('/result')
-#def result():
+
+# @app.route('/result')
+# def result():
 #    return render_template('return_results.html')
 
 @app.route('/uploader', methods=['POST'])
@@ -99,7 +100,7 @@ def upload_file():
                             model['error_description'] = error_description
                 else:
                     model['is_error'] = 0
-                    model['error_description'] = ''
+                    model['error_description'] = 'Fehlerfreies Referenzmodell'
 
                 # extract model name
                 soup = BeautifulSoup(model_file, 'lxml')
@@ -189,18 +190,24 @@ def upload_file():
                     highest_congruency = congruencies[model]
                     hc_model = model
 
-            a = "Modell mit höchster Übereinstimmung"
-            b = ("Modellname: " + df_models.loc[hc_model].model_name)
-            c = ("Grad der Übereinstimmung: " + str(highest_congruency))
+            a = "Modell mit höchster Übereinstimmung: "
+            b = ("Modell " + df_models.loc[hc_model].model_name)
+            c = ("Ausfallwahrscheinlichkeit: " + str(highest_congruency * 100) + "%")
             d = ("Ist fehlerhaft: " + str(df_models.loc[hc_model].is_error))
             e = ('Fehlerbeschreibung: ' + df_models.loc[hc_model].error_description)
-            f = ('Kontext:')
-            g = ('Fehlerbeschreibung: ' + df_models.loc[hc_model]['01_Aussentemperatur'])
-            h = ('Fehlerbeschreibung: ' + df_models.loc[hc_model]['03_Motordrehzahl'])
-            i = ('Fehlerbeschreibung: ' + df_models.loc[hc_model]['02_Luftfeuchtigkeit'])
+            f = ('Applikation: ')
+            g = ('Aussentemperatur: ' + df_models.loc[hc_model]['01_Aussentemperatur'])
+            h = ('Motordrehzahl: ' + df_models.loc[hc_model]['03_Motordrehzahl'])
+            i = ('Luftfeuchtigkeit: ' + df_models.loc[hc_model]['02_Luftfeuchtigkeit'])
 
-            result = (a + "; " + b + "; " + c + "; " + d + "; " + e + "; " + f + "; " + g + "; " + h + "; " + i)
-            return render_template('return_results.html', result=result)
+            if df_models.loc[hc_model].is_error == 0:
+                result = ("Das Modell ist fehlerfrei, da es zu " + str(highest_congruency * 100) + "% dem Modell" +
+                              df_models.loc[hc_model].model_name + "gleicht, welches in der Applikation "
+                              g + h + i + " keinerlei Fehlverhalten aufweißt.")
+                return render_template('return_results.html', result=result)
+            else:
+                result = (a + b + "; " + c + "; " + d + "; " + e + "; " + f + g + "; " + h + "; " + i)
+                return render_template('return_results.html', result=result)
 
 
 if __name__ == '__main__':
