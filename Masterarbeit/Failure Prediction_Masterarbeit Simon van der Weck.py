@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 warnings.warn('DelftStack')
 warnings.warn('Do not show this message')
 
-UPLOAD_FOLDER = 'C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel'
+UPLOAD_FOLDER = 'C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel' # DO: Add path to folder where new models are stored
 ALLOWED_EXTENSIONS = {'xmi'}
 
 app = Flask(__name__)
@@ -35,11 +35,6 @@ def homepage():
     return render_template('home.html')
 
 
-# @app.route('/commit_success')
-# def commit_success():
-#  return render_template('commit_success.html')
-
-
 @app.route('/aufbau')
 def aufbau():
     return render_template('aufbau.html')
@@ -51,10 +46,6 @@ def aufbau():
 def upload():
     return render_template('upload.html')
 
-
-# @app.route('/result')
-# def result():
-#    return render_template('return_positive_results.html')
 
 @app.route('/uploader', methods=['POST'])
 def upload_file():
@@ -173,11 +164,6 @@ def upload_file():
                 with open(new_file, 'r') as file:
                     content = file.read()
 
-            # working solution
-            # with open('C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel\\ID7.xmi',
-            #          'r') as file:  # DO: specify new model path
-            #    content = file.read()
-
             new_model = extract_model_from_file(content)
             congruencies = compare_new_model_to_known(new_model, df_models)
             # print(new_model)
@@ -190,17 +176,6 @@ def upload_file():
                     highest_congruency = congruencies[model]
                     hc_model = model
 
-            '''
-            a = "Modell mit höchster Übereinstimmung: "
-            b = ("Modell " + df_models.loc[hc_model].model_name)
-            c = ("Ausfallwahrscheinlichkeit: " + str(highest_congruency * 100) + "%")
-            d = ("Ist fehlerhaft: " + str(df_models.loc[hc_model].is_error))
-            e = ('Fehlerbeschreibung: ' + df_models.loc[hc_model].error_description)
-            f = ('Applikation: ')
-            g = ('Aussentemperatur: ' + df_models.loc[hc_model]['01_Aussentemperatur'])
-            h = ('Motordrehzahl: ' + df_models.loc[hc_model]['03_Motordrehzahl'])
-            i = ('Luftfeuchtigkeit: ' + df_models.loc[hc_model]['02_Luftfeuchtigkeit'])
-            '''
             b = df_models.loc[hc_model].model_name
             c = str(highest_congruency * 100)
             d = str(df_models.loc[hc_model].is_error)
@@ -213,7 +188,6 @@ def upload_file():
                 return render_template('return_positive_results.html', b=b, c=c, g=g, h=h, i=i)
             else:
                 return render_template('return_negative_results.html', b=b, c=c, e=e, g=g, h=h, i=i)
-
 
 if __name__ == '__main__':
     app.debug = True
