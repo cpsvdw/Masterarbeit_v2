@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0b24374-2071-4dd9-b69a-47e0f3e81787" name="Changes" comment="20220802_first file deleted">
-      <change beforePath="$PROJECT_DIR$/Failure Prediction_Masterarbeit Simon van der Weck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Failure Prediction_Masterarbeit Simon van der Weck.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/return_positive_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/return_positive_results.html" afterDir="false" />
+    <list default="true" id="e0b24374-2071-4dd9-b69a-47e0f3e81787" name="Changes" comment="20220802_return postive new">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Working environment/test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/read_xmi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/work environment.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -432,7 +434,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659421518785</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="20220802_return postive new">
+      <created>1659421943082</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1659421943082</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,6 +473,7 @@
     <MESSAGE value="20220725_structured return negative" />
     <MESSAGE value="20220802_round number" />
     <MESSAGE value="20220802_first file deleted" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220802_first file deleted" />
+    <MESSAGE value="20220802_return postive new" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220802_return postive new" />
   </component>
 </project>
