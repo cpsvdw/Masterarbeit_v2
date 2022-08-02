@@ -177,7 +177,7 @@ def upload_file():
                     hc_model = model
 
             b = df_models.loc[hc_model].model_name
-            c = str(highest_congruency * 100)
+            c = str(round(highest_congruency,2) * 100)
             d = str(df_models.loc[hc_model].is_error)
             e = df_models.loc[hc_model].error_description
             g = df_models.loc[hc_model]['01_Aussentemperatur']
