@@ -14,7 +14,7 @@ warnings.filterwarnings('ignore')
 warnings.warn('DelftStack')
 warnings.warn('Do not show this message')
 
-UPLOAD_FOLDER = 'C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel' # DO: Add path to folder where new models are stored
+UPLOAD_FOLDER = 'C:\\Users\\vanderweck\\PycharmProjects\\Masterarbeit\\Systemmodelle\\NewModel'  # DO: Add path to folder where new models are stored
 ALLOWED_EXTENSIONS = {'xmi'}
 
 app = Flask(__name__)
@@ -177,7 +177,7 @@ def upload_file():
                     hc_model = model
 
             b = df_models.loc[hc_model].model_name
-            c = str(round(highest_congruency,2) * 100)
+            c = str(round(highest_congruency, 2) * 100)
             d = str(df_models.loc[hc_model].is_error)
             e = df_models.loc[hc_model].error_description
             g = df_models.loc[hc_model]['01_Aussentemperatur']
@@ -188,6 +188,7 @@ def upload_file():
                 return render_template('return_positive_results.html', b=b, c=c, g=g, h=h, i=i)
             else:
                 return render_template('return_negative_results.html', b=b, c=c, e=e, g=g, h=h, i=i)
+
 
 if __name__ == '__main__':
     app.debug = True

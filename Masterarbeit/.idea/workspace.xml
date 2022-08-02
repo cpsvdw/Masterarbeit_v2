@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e0b24374-2071-4dd9-b69a-47e0f3e81787" name="Changes" comment="20220802_round number" />
+    <list default="true" id="e0b24374-2071-4dd9-b69a-47e0f3e81787" name="Changes" comment="20220802_first file deleted">
+      <change beforePath="$PROJECT_DIR$/Failure Prediction_Masterarbeit Simon van der Weck.py" beforeDir="false" afterPath="$PROJECT_DIR$/Failure Prediction_Masterarbeit Simon van der Weck.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/return_positive_results.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/return_positive_results.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="20220715_cleanup" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -422,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659420974407</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="20220802_first file deleted">
+      <created>1659421518785</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1659421518785</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -453,6 +463,7 @@
     <MESSAGE value="20220601_return positive &amp; negative, after some commit issues" />
     <MESSAGE value="20220725_structured return negative" />
     <MESSAGE value="20220802_round number" />
-    <option name="LAST_COMMIT_MESSAGE" value="20220802_round number" />
+    <MESSAGE value="20220802_first file deleted" />
+    <option name="LAST_COMMIT_MESSAGE" value="20220802_first file deleted" />
   </component>
 </project>
