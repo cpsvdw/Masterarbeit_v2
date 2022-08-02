@@ -219,10 +219,10 @@
     </configuration>
     <list>
       <item itemvalue="Python.Failure Prediction_Masterarbeit Simon van der Weck" />
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.flask3" />
       <item itemvalue="Python.flask3_copy (1)" />
       <item itemvalue="Python.flask3_workingenvironment" />
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.read_xmi" />
       <item itemvalue="Python.upload" />
     </list>
